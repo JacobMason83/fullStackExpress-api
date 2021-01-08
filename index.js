@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require('cors')
@@ -6,7 +7,10 @@ const port = process.env.Port || 4000;
 const app = express();
 const todoRoutes = require('./routes/todoRoutes')
 
-mongoose.connect("mongodb://localhost:27017/todo_db", err => {
+mongoose.connect(
+    process.env.MONGODB_URI,    
+    {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},
+    err => {
     if(err) {
         console.error("Mongo Connection Error", err)
     } else {
