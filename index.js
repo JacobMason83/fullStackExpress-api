@@ -8,7 +8,7 @@ const app = express();
 const todoRoutes = require('./routes/todoRoutes')
 
 mongoose.connect(
-    process.env(MONGODB_URI),    
+    process.env.MONGODB_URI,    
     {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},
     err => {
     if(err) {
