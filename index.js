@@ -3,12 +3,12 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require('cors')
 
-const port = process.env.Port || 4000;
+const port = process.env.PORT || 4000;
 const app = express();
 const todoRoutes = require('./routes/todoRoutes')
 
 mongoose.connect(
-    process.env.MONGODB_URI,    
+    process.env(MONGODB_URI),    
     {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},
     err => {
     if(err) {
